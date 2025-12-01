@@ -1,5 +1,10 @@
+CREATE DATABASE assistencia_tenica;
 use assistencia_tenica;
 
+CREATE TABLE pecas_reposicao(
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50)
+);
 INSERT INTO pecas_reposicao (nome) VALUE ("RTX 5090");
 INSERT INTO pecas_reposicao (nome) VALUE ("RTX 4090");
 INSERT INTO pecas_reposicao (nome) VALUE ("RTX 2060");
@@ -240,7 +245,7 @@ UPDATE clientes SET status = "Ativo" WHERE id = 9;
 UPDATE clientes SET status = "Inativo" WHERE id = 10;
 
 SELECT * FROM clientes WHERE status = "Ativo";
-SELECT * FROM clientes WHERE status IN ("Inativo", "Pendente");
+SELECT * FROM clientes WHERE status NOT IN ("ativo");
 
 ALTER TABLE clientes ADD COLUMN cpf VARCHAR(20);
 
