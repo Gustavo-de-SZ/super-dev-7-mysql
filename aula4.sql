@@ -99,12 +99,18 @@ id_categoria int,
 foreign key(id_categoria) references categorias_financeiro (id)
 );
 
-select entradas.id, categorias_financeiro.nome, entradas.nome from entradas inner join categorias_financeiro on (entradas.id = categorias_financeiro.id);
+SELECT entradas.id,
+       categorias_financeiro.nome,
+       entradas.nome,
+       entradas.valor
+FROM entradas
+INNER JOIN categorias_financeiro
+ON entradas.id_categoria = categorias_financeiro.id;
 
-insert into entradas (nome, valor, id_categoria) values ('entrada1', 4938983, 1);
-insert into entradas (nome, valor, id_categoria) values ('entrada2', 4938984, 2);
-insert into entradas (nome, valor, id_categoria) values ('entrada3', 4938985, 3);
-insert into entradas (nome, valor, id_categoria) values ('entrada4', 4938986, 4);
+insert into entradas (nome, valor, id_categoria) values ('entrada5', 4938983, 1);
+insert into entradas (nome, valor, id_categoria) values ('entrada6', 4938984, 2);
+insert into entradas (nome, valor, id_categoria) values ('entrada7', 4938985, 3);
+insert into entradas (nome, valor, id_categoria) values ('entrada8', 4938986, 4);
 
 select * from entradas;
 
@@ -119,12 +125,21 @@ id_categoria int,
 foreign key(id_categoria) references categorias_financeiro(id)
 );
 
-select saidas.id, categorias_financeiro.nome, saidas.nome from saidas inner join categorias_financeiro on (saidas.id = categorias_financeiro.id);
+SELECT saidas.id,
+       categorias_financeiro.nome AS categoria,
+       saidas.nome AS saida,
+       saidas.valor,
+       saidas.data_vencimento,
+       saidas.status
+FROM saidas
+INNER JOIN categorias_financeiro
+ON saidas.id_categoria = categorias_financeiro.id order by categorias_financeiro.id ASC;
 
-insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida1', 2394433, '2000-10-10', 1, 'pago');
-insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida2', 2394433, '2010-10-10', 2, 'devendo');
-insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida3', 2394433, '2020-10-10', 3, 'pendente');
-insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida4', 2394433, '2015-10-10', 4, 'nao');
-insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida5', 2394433, '2016-10-10', 5, 'sla');
+insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida6', 2394433, '2000-10-10', 1, 'pago');
+insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida7', 2394433, '2010-10-10', 2, 'devendo');
+insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida8', 2394433, '2020-10-10', 3, 'pendente');
+insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida9', 2394433, '2015-10-10', 4, 'nao');
+insert into saidas (nome, valor, data_vencimento, id_categoria, status) values ('saida10', 2394433, '2016-10-10', 5, 'sla');
+
 
 

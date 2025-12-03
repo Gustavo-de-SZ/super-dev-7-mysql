@@ -364,8 +364,3 @@ select * from clientes;
 
 
 
-
-
-
-
-
